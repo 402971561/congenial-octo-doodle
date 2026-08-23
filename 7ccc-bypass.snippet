@@ -16,7 +16,7 @@
 [rewrite_local]
 
 # 主规则：覆盖 api1 / api2 / api3 以及任意编号 api 子域的所有路径
-^https?://api[0-9]*\.?7ccccccc\.com/.* script-response-body https://raw.githubusercontent.com/USERNAME/REPO/main/7ccc-bypass.js
+^https?://api[0-9]*\.?7ccccccc\.com/.* script-response-body https://raw.githubusercontent.com/402971561/congenial-octo-doodle/main/7ccc-bypass.js
 
 # 兜底规则：覆盖任意 7ccccccc.com 子域（防止域名变体漏网）
-^https?://[a-z0-9\-\.]*7ccccccc\.com/.* script-response-body https://raw.githubusercontent.com/USERNAME/REPO/main/7ccc-bypass.js
+^https?://[a-z0-9\-\.]*7ccccccc\.com/.* script-response-body https://raw.githubusercontent.com/402971561/congenial-octo-doodle/main/7ccc-bypass.js
