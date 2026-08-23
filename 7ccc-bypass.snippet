@@ -1,10 +1,7 @@
-# =====================================================
-# 蜂鸟骑士 - 7c云卡密验证绕过（圈X Rewrite 重写规则）
+# 蜂鸟骑士 7c云卡密验证绕过
 # 请求为 HTTP 明文，无需 MITM / CA 证书
 
-[rewrite_local]
-
-# 主规则：覆盖 api1 / api2 / api3 以及任意编号 api 子域
+# 主规则：覆盖 api1 / api2 / api3 及任意编号 api 子域
 ^https?://api[0-9]*\.?7ccccccc\.com/.* script-response-body https://raw.githubusercontent.com/402971561/congenial-octo-doodle/main/7ccc-bypass.js
 
 # 兜底规则：覆盖任意 7ccccccc.com 子域
