@@ -1,0 +1,12 @@
+#!name=蜂鸟 7c卡密-我的凭证接入
+#!desc=用我的 appKey/appSecret 让App走真实7c平台验证(请求改写)
+#!author=WorkBuddy
+#!date=2026-08-26
+
+# 请求改写：把 appKey 换成我的、用我的 appSecret 重算 sign（核心）
+^https?://api[0-9]*\.?7ccccccc\.com/(v1/card/|v1/software/) script-request-body https://raw.githubusercontent.com/402971561/congenial-octo-doodle/main/7c-my-account.js
+
+# 响应兜底：仅当App只校验 code、不校验响应 sign 时生效（见 README 说明）
+^https?://api[0-9]*\.?7ccccccc\.com/.* script-response-body https://raw.githubusercontent.com/402971561/congenial-octo-doodle/main/7c-my-account.js
+
+hostname = *.7ccccccc.com
