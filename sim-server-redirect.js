@@ -15,7 +15,11 @@ const TARGET = '61.184.8.198:5562';
   if (url.indexOf(AUTHOR) < 0) { $done({}); return; }
 
   const newUrl = url.replace(AUTHOR, TARGET);
+  // 圈X 只返回 {url} 时 Host 头可能不会自动更新, 这里显式同步 Host
+  const headers = $request.headers || {};
+  headers['Host'] = TARGET;
+
   console.log('[sim-redirect] ' + url + '  ->  ' + newUrl);
-  // url 关键字已在 snippet 中声明, 返回新 url 即完成重定向
-  $done({ url: newUrl });
+  console.log('[sim-redirect] Host -> ' + TARGET);
+  $done({ url: newUrl, headers: headers });
 })();
